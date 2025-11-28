@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sudoku>
+    <cell row="1" col="1" zone="1">2</cell>
+    <cell row="1" col="1" zone="1">2</cell>
+    <cell row="1" col="2" zone="1">2</cell>
+    <cell row="1" col="1" zone="1">2</cell>
+    <cell row="1" col="1" zone="1">2</cell>
+    <cell row="1" col="1" zone="1">2</cell>
+    <cell row="1" col="1" zone="1">2</cell>
+    <cell row="1" col="1" zone="1">2</cell>
+    <cell row="1" col="1" zone="1">2</cell>
+    <cell row="1" col="1" zone="1">2</cell>
+    <cell row="1" col="1" zone="1">2</cell>
+    <cell row="1" col="1" zone="1"></cell>
+
+</sudoku>

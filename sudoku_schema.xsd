@@ -1,0 +1,36 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:element name="sudoku">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="cell" minOccurs="81" maxOccurs="81">
+                    <xsd:complexType>
+                        <xsd:simpleContent>
+                            <xsd:extension base="cellule">
+                                <xsd:attribute name="row" type="coords" use="required" />
+                                <xsd:attribute name="col" type="coords" use="required" />
+                                <xsd:attribute name="zone" type="coords" use="required" />
+                            </xsd:extension>
+                        </xsd:simpleContent>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+
+    <xsd:simpleType name="cellule">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[1-9]?"></xsd:pattern>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+
+    <xsd:simpleType name="coords">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-8]"></xsd:pattern>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+
+</xsd:schema>
