@@ -2,11 +2,11 @@
 <sudoku>
     <cell row="0" col="0" zone="0">1</cell>
     <cell row="0" col="1" zone="0">2</cell>
-    <cell row="0" col="2" zone="0">2</cell>
+    <cell row="0" col="2" zone="0">7</cell>
     <cell row="0" col="3" zone="1"></cell>
     <cell row="0" col="4" zone="1"></cell>
     <cell row="0" col="5" zone="1"></cell>
-    <cell row="0" col="6" zone="2">1</cell>
+    <cell row="0" col="6" zone="2">5</cell>
     <cell row="0" col="7" zone="2"></cell>
     <cell row="0" col="8" zone="2">3</cell>
     <cell row="1" col="0" zone="0"></cell>
@@ -17,7 +17,7 @@
     <cell row="1" col="5" zone="1"></cell>
     <cell row="1" col="6" zone="2"></cell>
     <cell row="1" col="7" zone="2"></cell>
-    <cell row="1" col="8" zone="2">3</cell>
+    <cell row="1" col="8" zone="2">8</cell>
     <cell row="2" col="0" zone="0"></cell>
     <cell row="2" col="1" zone="0"></cell>
     <cell row="2" col="2" zone="0"></cell>
