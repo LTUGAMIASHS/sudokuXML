@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sudoku>
+<grille>
+<!-- <cell row = 1 col = 1 region= 1>5</cell> -->
+<row index="1">
+    <cell col="1" region="1"></cell>
+    <cell col="2" region="1"></cell>
+    <cell col="3" region="1"></cell>
+    <cell col="4" region="2"></cell>
+    <cell col="5" region="2"></cell>
+    <cell col="6" region="2"></cell>
+    <cell col="7" region="3"></cell>
+    <cell col="8" region="3"></cell>
+    <cell col="9" region="3"></cell>
+</row>
+<row index="2">
+    <cell col="1" region="1"></cell>
+    <cell col="2" region="1"></cell>
+    <cell col="3" region="1"></cell>
+    <cell col="4" region="2"></cell>
+    <cell col="5" region="2"></cell>
+    <cell col="6" region="2"></cell>
+    <cell col="7" region="3"></cell>
+    <cell col="8" region="3"></cell>
+    <cell col="9" region="3"></cell>
+</row>
+<row index="3">
+    <cell col="1" region="1"></cell>
+    <cell col="2" region="1"></cell>
+    <cell col="3" region="1"></cell>
+    <cell col="4" region="2"></cell>
+    <cell col="5" region="2"></cell>
+    <cell col="6" region="2"></cell>
+    <cell col="7" region="3"></cell>
+    <cell col="8" region="3"></cell>
+    <cell col="9" region="3"></cell>
+</row>
+<row index="4">
+    <cell col="1" region="4"></cell>
+    <cell col="2" region="4"></cell>
+    <cell col="3" region="4"></cell>
+    <cell col="4" region="5"></cell>
+    <cell col="5" region="5"></cell>
+    <cell col="6" region="5"></cell>
+    <cell col="7" region="6"></cell>
+    <cell col="8" region="6"></cell>
+    <cell col="9" region="6"></cell>
+</row>
+<row index="5">
+    <cell col="1" region="4"></cell>
+    <cell col="2" region="4"></cell>  
+    <cell col="3" region="4"></cell>
+    <cell col="4" region="5"></cell>
+    <cell col="5" region="5"></cell>
+    <cell col="6" region="5"></cell>
+    <cell col="7" region="6"></cell>
+    <cell col="8" region="6"></cell>
+    <cell col="9" region="6"></cell>
+</row>
+<row index="6">
+    <cell col="1" region="4"></cell>
+    <cell col="2" region="4"></cell>
+    <cell col="3" region="4"></cell>
+    <cell col="4" region="5"></cell>
+    <cell col="5" region="5"></cell>
+    <cell col="6" region="5"></cell>
+    <cell col="7" region="6"></cell>
+    <cell col="8" region="6"></cell>
+    <cell col="9" region="6"></cell>
+</row>
+<row index="7">
+    <cell col="1" region="7"></cell>  
+    <cell col="2" region="7">6</cell>
+    <cell col="3" region="7"></cell>
+    <cell col="4" region="8"></cell>
+    <cell col="5" region="8"></cell>
+    <cell col="6" region="8"></cell>
+    <cell col="7" region="9">2</cell>
+    <cell col="8" region="9">8</cell>
+    <cell col="9" region="9"></cell>
+</row>
+<row index="8">
+    <cell col="1" region="7">4</cell>
+    <cell col="2" region="7"></cell>    
+    <cell col="3" region="7">5</cell>
+    <cell col="4" region="8">3</cell>
+    <cell col="5" region="8">4</cell>
+    <cell col="6" region="8">8</cell>
+    <cell col="7" region="9"></cell>
+    <cell col="8" region="9">1</cell>
+    <cell col="9" region="9">6</cell>
+</row>
+<row index="9">
+    <cell col="1" region="7">7</cell>   
+    <cell col="2" region="7">3</cell>
+    <cell col="3" region="7"></cell>
+    <cell col="4" region="8">6</cell>
+    <cell col="5" region="8">7</cell>
+    <cell col="6" region="8">2</cell>
+    <cell col="7" region="9">8</cell>
+    <cell col="8" region="9"></cell>
+    <cell col="9" region="9">9</cell>
+</row>  
+</grille>
+</sudoku>
+  
