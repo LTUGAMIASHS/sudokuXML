@@ -15,63 +15,86 @@
         <h1>SUDOKU</h1>
         <!-- Est-ce qu'il y a des conflits ? -->
         <xsl:variable name="erreur">
-            <xsl:for-each select="cell">
-                <xsl:if test="not (.='')">
-                    <!-- On definie les variables pour la cellule en cours -->
-                    <xsl:variable name="val1">
-                        <xsl:value-of select="." />
-                    </xsl:variable>
-                    <xsl:variable name="pos1" select="position()" />
-                    <xsl:variable name="row1">
-                        <xsl:value-of select="floor(($pos1 - 1)  div 9)+1"/>
-                    </xsl:variable>
-                    <xsl:variable name="col1">
-                        <xsl:value-of select="($pos1 -1 ) mod 9 + 1"/>
-                    </xsl:variable>
-                    <xsl:variable name="zone1">
-                        <xsl:value-of select="(floor(($row1 - 1 ) div 3) * 3 + 1 + floor(($col1 - 1) div 3))" />
-
-                    </xsl:variable>
-                    <!-- On parcours toutes les cells suivantes -->
-                    <xsl:for-each select="following-sibling::*">
-                        <!-- Définition des variables de la cellule fille -->
-                        <xsl:variable name="val2">
-                            <xsl:value-of select="." />
-                        </xsl:variable>
-                        <xsl:if test="$val1 = $val2">
-                            <xsl:variable name="pos2">
-                                <xsl:value-of select="$pos1 + position()"/>
-                            </xsl:variable>
-                            <xsl:variable name="row2">
-                                <xsl:value-of select="floor(($pos2 - 1)  div 9)+1"/>
-                            </xsl:variable>
-                            <xsl:variable name="col2">
-                                <xsl:value-of select="($pos2 -1 ) mod 9 + 1"/>
-                            </xsl:variable>
-                            <xsl:variable name="zone2">
-                                <xsl:value-of select="(floor(($row2 - 1 ) div 3) * 3 + 1 + floor(($col2 - 1) div 3))" />
-                            </xsl:variable>
-                            <!-- Est-ce qu'il y a conflit ? -->
-                            <xsl:if test="($row1 = $row2) or ($col1 = $col2) or ($zone1 = $zone2)">
-                                <xsl:variable name="chaine" select="concat($row1,';',$col1,' avec ',$row2,';',$col2)" />
-                                <xsl:value-of select="$chaine"/>
- and 
-
-
-                            </xsl:if>
-                        </xsl:if>
-                    </xsl:for-each>
-                </xsl:if>
-            </xsl:for-each>
+            <xsl:call-template name="check_errors" />
         </xsl:variable>
         <!-- Et-ce qu'il y des cases vides ? -->
         <xsl:variable name="empty">
-            <xsl:for-each select="cell">
-                <xsl:if test=".=''">
-                empty
-                </xsl:if>
-            </xsl:for-each>
+            <xsl:call-template name="empty_tiles" />
         </xsl:variable>
+        <xsl:call-template name="display_messages">
+            <xsl:with-param name="erreur" select="$erreur"/>
+            <xsl:with-param name="empty" select="$empty" />
+        </xsl:call-template>
+
+        <xsl:call-template name="draw_svg">
+            <xsl:with-param name="erreur" select="$erreur" />
+        </xsl:call-template>
+
+
+    </xsl:template>
+
+    <xsl:template name="check_errors">
+        <xsl:for-each select="cell">
+            <xsl:if test="not (.='')">
+                <!-- On definie les variables pour la cellule en cours -->
+                <xsl:variable name="val1">
+                    <xsl:value-of select="." />
+                </xsl:variable>
+                <xsl:variable name="pos1" select="position()" />
+                <xsl:variable name="row1">
+                    <xsl:value-of select="floor(($pos1 - 1)  div 9)+1"/>
+                </xsl:variable>
+                <xsl:variable name="col1">
+                    <xsl:value-of select="($pos1 -1 ) mod 9 + 1"/>
+                </xsl:variable>
+                <xsl:variable name="zone1">
+                    <xsl:value-of select="(floor(($row1 - 1 ) div 3) * 3 + 1 + floor(($col1 - 1) div 3))" />
+                </xsl:variable>
+                <!-- On parcours toutes les cells suivantes -->
+                <xsl:for-each select="following-sibling::*">
+                    <!-- Définition des variables de la cellule fille -->
+                    <xsl:variable name="val2">
+                        <xsl:value-of select="." />
+                    </xsl:variable>
+                    <xsl:if test="$val1 = $val2">
+                        <xsl:variable name="pos2">
+                            <xsl:value-of select="$pos1 + position()"/>
+                        </xsl:variable>
+                        <xsl:variable name="row2">
+                            <xsl:value-of select="floor(($pos2 - 1)  div 9)+1"/>
+                        </xsl:variable>
+                        <xsl:variable name="col2">
+                            <xsl:value-of select="($pos2 -1 ) mod 9 + 1"/>
+                        </xsl:variable>
+                        <xsl:variable name="zone2">
+                            <xsl:value-of select="(floor(($row2 - 1 ) div 3) * 3 + 1 + floor(($col2 - 1) div 3))" />
+                        </xsl:variable>
+                        <!-- Est-ce qu'il y a conflit ? -->
+                        <xsl:if test="($row1 = $row2) or ($col1 = $col2) or ($zone1 = $zone2)">
+                            <xsl:variable name="chaine" select="concat($row1,';',$col1,' avec ',$row2,';',$col2)" />
+                            <xsl:value-of select="$chaine"/>
+ and 
+                        </xsl:if>
+                    </xsl:if>
+                </xsl:for-each>
+            </xsl:if>
+        </xsl:for-each>
+    </xsl:template>
+
+
+    <xsl:template name="empty_tiles">
+        <xsl:for-each select="cell">
+            <xsl:if test=".=''">
+                empty
+            </xsl:if>
+        </xsl:for-each>
+    </xsl:template>
+
+
+    <xsl:template name="display_messages">
+        <xsl:param name="erreur" />
+        <xsl:param name="empty" />
+
         <xsl:choose>
             <xsl:when test="$empty=''">
             La grille est complète <br/>
@@ -85,7 +108,10 @@
             Il y des conflits : <br/>
         <xsl:value-of select="$erreur"/>
     </xsl:if>
+</xsl:template>
 
+<xsl:template name="draw_svg">
+    <xsl:param name="erreur"/>
     <div>
         <svg width="500" height="500"
             xmlns="http://www.w3.org/2000/svg">
