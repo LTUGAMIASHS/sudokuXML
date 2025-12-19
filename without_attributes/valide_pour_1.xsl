@@ -18,9 +18,6 @@
         <xsl:variable name="blocked_tiles">
             <xsl:call-template name="look_for_blocked_tiles" />
         </xsl:variable>
-
-        <xsl:value-of select="$blocked_tiles" />
-
         <xsl:call-template name="draw_svg">
             <xsl:with-param name="blocked_tiles" select="$blocked_tiles" />
         </xsl:call-template>
@@ -29,7 +26,6 @@
     </xsl:template>
 
     <xsl:template name="look_for_blocked_tiles">
-    greger
         <xsl:for-each select="cell">
             <xsl:if test=".=$number">
                 <!-- On definie les variables pour la cellule en cours -->
