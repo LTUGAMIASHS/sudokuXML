@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<h1 xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">Grille de Sudoku- Projet XML</h1><svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" width="500" height="600" viewBox="0 0 500 600">
+  <style>
+                .cell-rect { fill: white; stroke: black; stroke-width: 1; }
+                .text { font-family: Arial; font-size: 20px; text-anchor: middle; dominant-baseline: middle; }
+                .status { font-family: Arial; font-size: 24px; font-weight: bold; text-anchor: middle; }
+                .thick-border { fill: none; stroke: black; stroke-width: 3; }
+            </style>
+  <g transform="translate(50, 50)">
+    <rect x="0" y="0" width="50" height="50" class="cell-rect"/>
+    <text x="25" y="25" class="text">5</text>
+    <rect x="50" y="0" width="50" height="50" class="cell-rect"/>
+    <text x="75" y="25" class="text">3</text>
+    <rect x="100" y="0" width="50" height="50" class="cell-rect"/>
+    <text x="125" y="25" class="text">4</text>
+    <rect x="150" y="0" width="50" height="50" class="cell-rect"/>
+    <text x="175" y="25" class="text">6</text>
+    <rect x="200" y="0" width="50" height="50" class="cell-rect"/>
+    <text x="225" y="25" class="text">7</text>
+    <rect x="250" y="0" width="50" height="50" class="cell-rect"/>
+    <text x="275" y="25" class="text">8</text>
+    <rect x="300" y="0" width="50" height="50" class="cell-rect"/>
+    <text x="325" y="25" class="text">9</text>
+    <rect x="350" y="0" width="50" height="50" class="cell-rect"/>
+    <text x="375" y="25" class="text">1</text>
+    <rect x="400" y="0" width="50" height="50" class="cell-rect"/>
+    <text x="425" y="25" class="text">2</text>
+    <rect x="0" y="50" width="50" height="50" class="cell-rect"/>
+    <text x="25" y="75" class="text">6</text>
+    <rect x="50" y="50" width="50" height="50" class="cell-rect"/>
+    <text x="75" y="75" class="text">7</text>
+    <rect x="100" y="50" width="50" height="50" class="cell-rect"/>
+    <text x="125" y="75" class="text">2</text>
+    <rect x="150" y="50" width="50" height="50" class="cell-rect"/>
+    <text x="175" y="75" class="text">1</text>
+    <rect x="200" y="50" width="50" height="50" class="cell-rect"/>
+    <text x="225" y="75" class="text">9</text>
+    <rect x="250" y="50" width="50" height="50" class="cell-rect"/>
+    <text x="275" y="75" class="text">5</text>
+    <rect x="300" y="50" width="50" height="50" class="cell-rect"/>
+    <text x="325" y="75" class="text">3</text>
+    <rect x="350" y="50" width="50" height="50" class="cell-rect"/>
+    <text x="375" y="75" class="text">4</text>
+    <rect x="400" y="50" width="50" height="50" class="cell-rect"/>
+    <text x="425" y="75" class="text">8</text>
+    <rect x="0" y="100" width="50" height="50" class="cell-rect"/>
+    <text x="25" y="125" class="text">1</text>
+    <rect x="50" y="100" width="50" height="50" class="cell-rect"/>
+    <text x="75" y="125" class="text">9</text>
+    <rect x="100" y="100" width="50" height="50" class="cell-rect"/>
+    <text x="125" y="125" class="text">8</text>
+    <rect x="150" y="100" width="50" height="50" class="cell-rect"/>
+    <text x="175" y="125" class="text">3</text>
+    <rect x="200" y="100" width="50" height="50" class="cell-rect"/>
+    <text x="225" y="125" class="text">4</text>
+    <rect x="250" y="100" width="50" height="50" class="cell-rect"/>
+    <text x="275" y="125" class="text">2</text>
+    <rect x="300" y="100" width="50" height="50" class="cell-rect"/>
+    <text x="325" y="125" class="text">5</text>
+    <rect x="350" y="100" width="50" height="50" class="cell-rect"/>
+    <text x="375" y="125" class="text">6</text>
+    <rect x="400" y="100" width="50" height="50" class="cell-rect"/>
+    <text x="425" y="125" class="text">7</text>
+    <rect x="0" y="150" width="50" height="50" class="cell-rect"/>
+    <text x="25" y="175" class="text">8</text>
+    <rect x="50" y="150" width="50" height="50" class="cell-rect"/>
+    <text x="75" y="175" class="text">5</text>
+    <rect x="100" y="150" width="50" height="50" class="cell-rect"/>
+    <text x="125" y="175" class="text">9</text>
+    <rect x="150" y="150" width="50" height="50" class="cell-rect"/>
+    <text x="175" y="175" class="text">7</text>
+    <rect x="200" y="150" width="50" height="50" class="cell-rect"/>
+    <text x="225" y="175" class="text">6</text>
+    <rect x="250" y="150" width="50" height="50" class="cell-rect"/>
+    <text x="275" y="175" class="text">1</text>
+    <rect x="300" y="150" width="50" height="50" class="cell-rect"/>
+    <text x="325" y="175" class="text">4</text>
+    <rect x="350" y="150" width="50" height="50" class="cell-rect"/>
+    <text x="375" y="175" class="text">2</text>
+    <rect x="400" y="150" width="50" height="50" class="cell-rect"/>
+    <text x="425" y="175" class="text">3</text>
+    <rect x="0" y="200" width="50" height="50" class="cell-rect"/>
+    <text x="25" y="225" class="text">4</text>
+    <rect x="50" y="200" width="50" height="50" class="cell-rect"/>
+    <text x="75" y="225" class="text">2</text>
+    <rect x="100" y="200" width="50" height="50" class="cell-rect"/>
+    <text x="125" y="225" class="text">6</text>
+    <rect x="150" y="200" width="50" height="50" class="cell-rect"/>
+    <text x="175" y="225" class="text">8</text>
+    <rect x="200" y="200" width="50" height="50" class="cell-rect"/>
+    <text x="225" y="225" class="text">5</text>
+    <rect x="250" y="200" width="50" height="50" class="cell-rect"/>
+    <text x="275" y="225" class="text">3</text>
+    <rect x="300" y="200" width="50" height="50" class="cell-rect"/>
+    <text x="325" y="225" class="text">7</text>
+    <rect x="350" y="200" width="50" height="50" class="cell-rect"/>
+    <text x="375" y="225" class="text">9</text>
+    <rect x="400" y="200" width="50" height="50" class="cell-rect"/>
+    <text x="425" y="225" class="text">1</text>
+    <rect x="0" y="250" width="50" height="50" class="cell-rect"/>
+    <text x="25" y="275" class="text">7</text>
+    <rect x="50" y="250" width="50" height="50" class="cell-rect"/>
+    <text x="75" y="275" class="text">1</text>
+    <rect x="100" y="250" width="50" height="50" class="cell-rect"/>
+    <text x="125" y="275" class="text">3</text>
+    <rect x="150" y="250" width="50" height="50" class="cell-rect"/>
+    <text x="175" y="275" class="text">9</text>
+    <rect x="200" y="250" width="50" height="50" class="cell-rect"/>
+    <text x="225" y="275" class="text">2</text>
+    <rect x="250" y="250" width="50" height="50" class="cell-rect"/>
+    <text x="275" y="275" class="text">4</text>
+    <rect x="300" y="250" width="50" height="50" class="cell-rect"/>
+    <text x="325" y="275" class="text">8</text>
+    <rect x="350" y="250" width="50" height="50" class="cell-rect"/>
+    <text x="375" y="275" class="text">5</text>
+    <rect x="400" y="250" width="50" height="50" class="cell-rect"/>
+    <text x="425" y="275" class="text">6</text>
+    <rect x="0" y="300" width="50" height="50" class="cell-rect"/>
+    <text x="25" y="325" class="text">9</text>
+    <rect x="50" y="300" width="50" height="50" class="cell-rect"/>
+    <text x="75" y="325" class="text">6</text>
+    <rect x="100" y="300" width="50" height="50" class="cell-rect"/>
+    <text x="125" y="325" class="text">1</text>
+    <rect x="150" y="300" width="50" height="50" class="cell-rect"/>
+    <text x="175" y="325" class="text">5</text>
+    <rect x="200" y="300" width="50" height="50" class="cell-rect"/>
+    <text x="225" y="325" class="text">3</text>
+    <rect x="250" y="300" width="50" height="50" class="cell-rect"/>
+    <text x="275" y="325" class="text">7</text>
+    <rect x="300" y="300" width="50" height="50" class="cell-rect"/>
+    <text x="325" y="325" class="text">2</text>
+    <rect x="350" y="300" width="50" height="50" class="cell-rect"/>
+    <text x="375" y="325" class="text">8</text>
+    <rect x="400" y="300" width="50" height="50" class="cell-rect"/>
+    <text x="425" y="325" class="text">4</text>
+    <rect x="0" y="350" width="50" height="50" class="cell-rect"/>
+    <text x="25" y="375" class="text">2</text>
+    <rect x="50" y="350" width="50" height="50" class="cell-rect"/>
+    <text x="75" y="375" class="text">8</text>
+    <rect x="100" y="350" width="50" height="50" class="cell-rect"/>
+    <text x="125" y="375" class="text">7</text>
+    <rect x="150" y="350" width="50" height="50" class="cell-rect"/>
+    <text x="175" y="375" class="text">4</text>
+    <rect x="200" y="350" width="50" height="50" class="cell-rect"/>
+    <text x="225" y="375" class="text">1</text>
+    <rect x="250" y="350" width="50" height="50" class="cell-rect"/>
+    <text x="275" y="375" class="text">9</text>
+    <rect x="300" y="350" width="50" height="50" class="cell-rect"/>
+    <text x="325" y="375" class="text">6</text>
+    <rect x="350" y="350" width="50" height="50" class="cell-rect"/>
+    <text x="375" y="375" class="text">3</text>
+    <rect x="400" y="350" width="50" height="50" class="cell-rect"/>
+    <text x="425" y="375" class="text">5</text>
+    <rect x="0" y="400" width="50" height="50" class="cell-rect"/>
+    <text x="25" y="425" class="text">3</text>
+    <rect x="50" y="400" width="50" height="50" class="cell-rect"/>
+    <text x="75" y="425" class="text">4</text>
+    <rect x="100" y="400" width="50" height="50" class="cell-rect"/>
+    <text x="125" y="425" class="text">5</text>
+    <rect x="150" y="400" width="50" height="50" class="cell-rect"/>
+    <text x="175" y="425" class="text">2</text>
+    <rect x="200" y="400" width="50" height="50" class="cell-rect"/>
+    <text x="225" y="425" class="text">8</text>
+    <rect x="250" y="400" width="50" height="50" class="cell-rect"/>
+    <text x="275" y="425" class="text">6</text>
+    <rect x="300" y="400" width="50" height="50" class="cell-rect"/>
+    <text x="325" y="425" class="text">1</text>
+    <rect x="350" y="400" width="50" height="50" class="cell-rect"/>
+    <text x="375" y="425" class="text">7</text>
+    <rect x="400" y="400" width="50" height="50" class="cell-rect"/>
+    <text x="425" y="425" class="text">9</text>
+    <rect x="0" y="0" width="450" height="450" class="thick-border"/>
+    <line x1="150" y1="0" x2="150" y2="450" class="thick-border"/>
+    <line x1="300" y1="0" x2="300" y2="450" class="thick-border"/>
+    <line x1="0" y1="150" x2="450" y2="150" class="thick-border"/>
+    <line x1="0" y1="300" x2="450" y2="300" class="thick-border"/>
+  </g>
+  <text x="250" y="550" class="status" fill="green">Configuration gagnante</text>
+</svg>
