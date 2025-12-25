@@ -50,7 +50,7 @@
         <xsl:param name="vide"/>
 
         <!-- Utilisation de contains pour éviter des erreurs dûes à la mise en forme auto -->
-        <xsl:if test="($pos &lt; 80) and not (contains($conflit, 'oui')) and not (contains($vide,'oui'))">
+        <xsl:if test="($pos &lt; 81) and not (contains($conflit, 'oui')) and not (contains($vide,'oui'))">
 
             <!-- Pas encore d'erreur ET vide il faut continuer-->
             <!-- Traiement la cellule à la position $pos, -->
