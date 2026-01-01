@@ -1,46 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-    <xsl:output method="html" indent="yes" />
+    <xsl:output method="xml" indent="yes" />
 
     <xsl:template match="/sudoku">
-        <html>
-            <body>
-                <h1>SUDOKU</h1>
-                <!-- La variable erreur contiendra à la fin les infos utiles -->
-                <xsl:variable name="erreur">
-                    <!-- Appel du template récursif -->
-                    <xsl:call-template name="while">
-                        <xsl:with-param name="pos" select='1'/>
-                        <xsl:with-param name="conflit" select="'non'" />
-                        <xsl:with-param name="vide" select="'non'" />
+        <svg width="500" height="650"
+            xmlns="http://www.w3.org/2000/svg">
+            <title>Sudoku</title>
 
-                    </xsl:call-template>
+
+            <!-- La variable erreur contiendra à la fin les infos utiles -->
+            <xsl:variable name="erreur">
+                <!-- Appel du template récursif -->
+                <xsl:call-template name="while">
+                    <xsl:with-param name="pos" select='1'/>
+                    <xsl:with-param name="conflit" select="'non'" />
+                    <xsl:with-param name="vide" select="'non'" />
+                </xsl:call-template>
+            </xsl:variable>
+            <text x="40" y="40" stroke="red" font-size="35">
+            SUDOKU
+            </text>
+            <!-- Affichage des informations -->
+            <xsl:choose>
+                <xsl:when test="contains($erreur, 'vide')">
+                    <text x="40" y="90" stroke="red" font-size="20">La grille est incomplète</text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <text x="40" y="90" stroke="green" font-size="20">La grille est complète</text>
+                </xsl:otherwise>
+            </xsl:choose>
+            <xsl:choose>
+                <xsl:when test="contains($erreur, 'conflit')">
+                    <text x="40" y="140" stroke="red" font-size="20">La grille contient une ou des erreur(s)</text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <text x="40" y="140" stroke="green" font-size="20">La grille ne contient pas d'erreur</text>
+                </xsl:otherwise>
+            </xsl:choose>
+
+
+            <!-- Affichage de la grille -->
+            <xsl:for-each select="cell">
+                <xsl:variable name="pos" select="position()" />
+                <xsl:variable name="row">
+                    <xsl:value-of select="floor(($pos - 1)  div 9)+1"/>
+                </xsl:variable>
+                <xsl:variable name="col">
+                    <xsl:value-of select="($pos -1 ) mod 9 + 1"/>
+                </xsl:variable>
+                <xsl:variable name="rowSVG">
+                    <xsl:value-of select="($row -1) * 50"/>
+                </xsl:variable>
+                <xsl:variable name="colSVG">
+                    <xsl:value-of select="($col -1) * 50"/>
                 </xsl:variable>
 
+                <rect width="50" height="50" x="{$colSVG+10}" y="{$rowSVG+10+150}" style="fill:rgb(255,255,255);stroke-width:3;stroke:black" />
 
-                <!-- Affichage des informations -->
-                <xsl:choose>
-                    <xsl:when test="contains($erreur, 'vide')">
-                        <h5>La grille est incomplète</h5>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <h5>La grille est complète</h5>
-                    </xsl:otherwise>
-                </xsl:choose>
-                <xsl:choose>
-                    <xsl:when test="contains($erreur, 'conflit')">
-                        <h5>La grille contient une ou des erreur(s)</h5>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <h5>La grille ne contient pas d'erreur</h5>
-                    </xsl:otherwise>
-                </xsl:choose>
+                <text x="{$colSVG +26}" y="{$rowSVG +45+150}" font-size="2em" fill="black">
+                    <xsl:value-of select="." />
+                </text>
 
-                <!-- Affichage de la grille -->
-                <xsl:call-template name="draw_svg" />
+            </xsl:for-each>
+            <line x1="160" y1="160" x2="160" y2 ="610" style="stroke:black;stroke-width:12"/>
 
-            </body>
-        </html>
+            <line x1="310" y1="160" x2="310" y2 ="610" style="stroke:black;stroke-width:12"/>
+
+            <line x1="10" y1="310" x2="460" y2 ="310" style="stroke:black;stroke-width:12"/>
+
+            <line x1="10" y1="460" x2="460" y2 ="460" style="stroke:black;stroke-width:12"/>
+
+
+        </svg>
+
     </xsl:template>
 
 
@@ -50,8 +82,7 @@
         <xsl:param name="vide"/>
 
         <!-- Utilisation de contains pour éviter des erreurs dûes à la mise en forme auto -->
-        <xsl:if test="($pos &lt; 81) and not (contains($conflit, 'oui')) and not (contains($vide,'oui'))">
-
+        <xsl:if test="($pos &lt; 81) and not ((contains($conflit, 'oui')) and (contains($vide,'oui')))">
             <!-- Pas encore d'erreur ET vide il faut continuer-->
             <!-- Traiement la cellule à la position $pos, -->
             <xsl:variable name="stop">
@@ -101,7 +132,6 @@
         <xsl:param name="pos"/>
         <xsl:param name="conflit"/>
         <xsl:param name="vide"/>
-        <value-of select="$pos" />
 
         <xsl:choose>
             <xsl:when test="not (.='') and contains($conflit,'non')">
@@ -165,6 +195,7 @@
                         conflit
                     <xsl:variable name="chaine" select="concat($row1,';',$col1,' avec ',$row2,';',$col2)" />
                     <xsl:value-of select="$chaine"/>
+4" 
                 </xsl:if>
             </xsl:if>
         </xsl:variable>
@@ -183,40 +214,6 @@
             </xsl:call-template>
         </xsl:if>
     </xsl:template>
-
-
-    <xsl:template name="draw_svg">
-        <div>
-            <svg width="500" height="500"
-                xmlns="http://www.w3.org/2000/svg">
-                <xsl:for-each select="cell">
-                    <xsl:variable name="pos" select="position()" />
-                    <xsl:variable name="row">
-                        <xsl:value-of select="floor(($pos - 1)  div 9)+1"/>
-                    </xsl:variable>
-                    <xsl:variable name="col">
-                        <xsl:value-of select="($pos -1 ) mod 9 + 1"/>
-                    </xsl:variable>
-                    <xsl:variable name="rowSVG">
-                        <xsl:value-of select="($row -1) * 50"/>
-                    </xsl:variable>
-                    <xsl:variable name="colSVG">
-                        <xsl:value-of select="($col -1) * 50"/>
-                    </xsl:variable>
-
-                    <rect width="50" height="50" x="{$colSVG+10}" y="{$rowSVG+10}" style="fill:rgb(255,255,255);stroke-width:3;stroke:black" />
-                    <text x="{$colSVG +26}" y="{$rowSVG +45}" font-size="2em" fill="black">
-                        <xsl:value-of select="." />
-                    </text>
-                </xsl:for-each>
-                <line x1="160" y1="10" x2="160" y2 ="460" style="stroke:black;stroke-width:12"/>
-                <line x1="310" y1="10" x2="310" y2 ="460" style="stroke:black;stroke-width:12"/>
-                <line x1="10" y1="160" x2="460" y2 ="160" style="stroke:black;stroke-width:12"/>
-                <line x1="10" y1="310" x2="460" y2 ="310" style="stroke:black;stroke-width:12"/>
-            </svg>
-        </div>
-    </xsl:template>
-
 
 
 </xsl:stylesheet>
