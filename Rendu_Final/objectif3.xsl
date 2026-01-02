@@ -17,9 +17,12 @@
                     <xsl:with-param name="vide" select="'non'" />
                 </xsl:call-template>
             </xsl:variable>
+
+
             <text x="40" y="40" stroke="red" font-size="35">
             SUDOKU
             </text>
+
             <!-- Affichage des informations -->
             <xsl:choose>
                 <xsl:when test="contains($erreur, 'vide')">
@@ -82,25 +85,24 @@
         <xsl:param name="vide"/>
 
         <!-- Utilisation de contains pour éviter des erreurs dûes à la mise en forme auto -->
-        <xsl:if test="($pos &lt; 81) and not ((contains($conflit, 'oui')) and (contains($vide,'oui')))">
+        <xsl:if test="($pos &lt; 82) and not ((contains($conflit, 'oui')) and (contains($vide,'oui')))">
             <!-- Pas encore d'erreur ET vide il faut continuer-->
             <!-- Traiement la cellule à la position $pos, -->
             <xsl:variable name="stop">
-                <xsl:if test="cell[position() = $pos]">
-                    <!-- renvoie vers le template cell avec comme contexte la cell à position $pos -->
-                    <xsl:apply-templates select="cell[position() = $pos ]">
-                        <!-- position dans /sudoku de la cellule -->
-                        <xsl:with-param name="pos" select="$pos"/>
-                        <xsl:with-param name="conflit" select="$conflit" />
-                        <xsl:with-param name="vide" select="$vide" />
-                    </xsl:apply-templates>
-                </xsl:if>
+                <!-- renvoie vers le template cell avec comme contexte la cell à position $pos -->
+                <xsl:apply-templates select="cell[position() = $pos ]">
+                    <!-- position dans /sudoku de la cellule -->
+                    <xsl:with-param name="pos" select="$pos"/>
+                    <xsl:with-param name="conflit" select="$conflit" />
+                    <xsl:with-param name="vide" select="$vide" />
+                </xsl:apply-templates>
             </xsl:variable>
 
 
             <!--Permet de mettre 'conflit' et 'vide' dans $erreur si il y a conflit ou une cell vide-->
             <xsl:value-of select='$stop'/>
 
+            <!-- Mise à jour de conflit et vide pour le prochain appel -->
             <!-- Utilisation de contains pour éviter des erreurs dûes à la mise en forme auto -->
             <xsl:variable name="define_conflit">
                 <xsl:choose>
@@ -193,9 +195,6 @@
                 <!-- Est-ce qu'il y a conflit ? -->
                 <xsl:if test="($row1 = $row2) or ($col1 = $col2) or ($zone1 = $zone2)">
                         conflit
-                    <xsl:variable name="chaine" select="concat($row1,';',$col1,' avec ',$row2,';',$col2)" />
-                    <xsl:value-of select="$chaine"/>
-4" 
                 </xsl:if>
             </xsl:if>
         </xsl:variable>
