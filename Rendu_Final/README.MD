@@ -1,10 +1,10 @@
 # Projet Sudoku
 
-Le rapport sur notre travail se trouve dans Rapport.pdf
+Le rapport sur notre travail se trouve dans Rapport_XML.pdf
 
-## Objectif 1 et 2 : Schmea XSD
+## Objectif 1 et 2 : Schema XSD
 
-Le schema se trouve dans le fichier schmea_sudoku.xsd
+Le schema se trouve dans le fichier schema_sudoku.xsd
 
 Test avec un sudoku valide :
 

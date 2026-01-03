@@ -1,3 +1,7 @@
+entete="""<?xml version="1.0" encoding="UTF-8"?>"""
+print(entete)
+print("<sudoku>")
+
 for row in range(9):
     res1 = "\t<cell row=\"" + f"{row}"
     for col in range(9):
@@ -9,4 +13,6 @@ for row in range(9):
             zone = 6
         zone += col // 3
         res = res1 + "\" col=\"" + f"{col}" + "\" zone=\"" + f"{zone}" + "\"></cell>"
-print(res)
+        print(res)
+
+print("</sudoku>")
