@@ -1,6 +1,7 @@
 # Projet Sudoku
 
 Le rapport sur notre travail se trouve dans Rapport_XML.pdf
+Le répertoire annexe contient les scripts python que nous avons utilisés pour générer des sudoku en xml
 
 ## Objectif 1 et 2 : Schema XSD
 
